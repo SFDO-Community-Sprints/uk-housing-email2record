@@ -14,7 +14,7 @@ Provide a free, open-source starting point for Salesforce orgs that receive stru
 
 ### Project Vertical
 
-Other — originally created for UK Housing; adaptable to any vertical.
+Created for UK Housing; adaptable to any vertical.
 
 ### Trailblazer Group or Slack Channel
 
