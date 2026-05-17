@@ -2,6 +2,8 @@
 
 Converts inbound emails into structured Salesforce records, enriched by an Agentforce Prompt Template. Built for UK Housing; adaptable to any vertical.
 
+<img width="1014" height="446" alt="image" src="https://github.com/user-attachments/assets/0971ee46-a014-46b4-88fe-48c154ac4b9a" />
+
 ## Project Overview
 
 ### Vision & Goals
