@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>E2R_Records_Queue</fullName>
+    <columns>NAME</columns>
+    <columns>aha_AI_Enrichment_Status__c</columns>
+    <columns>aha_Sourced_from_Email__c</columns>
+    <columns>aha_Email_From__c</columns>
+    <columns>aha_Email_Subject__c</columns>
+    <filterScope>Queue</filterScope>
+    <label>E2R Records Queue</label>
+    <queue>aha_E2R_Records</queue>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

@@ -1,0 +1,44 @@
+{
+  "lightning:supportsPersonalization" : true,
+  "description" : "Object-based Lightning Type schema for E2R Record (v1). Generic example schema — replace or extend properties to match your target object.",
+  "lightning:type" : "lightning__objectType",
+  "title" : "ahaE2RRecordOBLTv1",
+  "required" : [ ],
+  "properties" : {
+    "senderName" : {
+      "title" : "senderName",
+      "description" : "The name of the person who submitted or reported this record. Typically found in the email signature or a 'From' / 'Submitted by' field in the body.",
+      "lightning:type" : "lightning__textType"
+    },
+    "recordDateTimeString" : {
+      "title" : "recordDateTimeString",
+      "description" : "The primary date/time referenced in the email content. Return as ISO 8601 string: YYYY-MM-DDTHH:MM:SSZ. Leave blank if not found.",
+      "lightning:type" : "lightning__textType"
+    },
+    "summary" : {
+      "title" : "summary",
+      "description" : "A brief one- or two-sentence summary of the email content.",
+      "lightning:type" : "lightning__textType"
+    },
+    "category" : {
+      "title" : "category",
+      "description" : "The type or category of this record as indicated in the email (e.g. 'Complaint', 'Request', 'Report').",
+      "lightning:type" : "lightning__textType"
+    },
+    "priority" : {
+      "title" : "priority",
+      "description" : "The priority level indicated in the email. Use one of: High, Medium, Low. If not stated, use Medium.",
+      "lightning:type" : "lightning__textType"
+    },
+    "actionRequired" : {
+      "title" : "actionRequired",
+      "description" : "True if the email explicitly requests or implies that an action must be taken; false otherwise.",
+      "lightning:type" : "lightning__booleanType"
+    },
+    "notes" : {
+      "title" : "notes",
+      "description" : "Any additional freeform details, context, or verbatim sections from the email that do not fit the other fields.",
+      "lightning:type" : "lightning__textType"
+    }
+  }
+}

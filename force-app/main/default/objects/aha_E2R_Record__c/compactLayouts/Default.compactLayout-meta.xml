@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Default</fullName>
+    <fields>Name</fields>
+    <fields>aha_Sender_Name__c</fields>
+    <fields>aha_Record_Date__c</fields>
+    <fields>aha_Priority__c</fields>
+    <fields>aha_AI_Enrichment_Status__c</fields>
+    <fields>aha_Sourced_from_Email__c</fields>
+    <label>Default</label>
+</CompactLayout>

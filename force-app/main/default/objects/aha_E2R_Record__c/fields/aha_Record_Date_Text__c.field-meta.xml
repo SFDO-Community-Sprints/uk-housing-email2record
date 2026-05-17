@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>aha_Record_Date_Text__c</fullName>
+    <description>Stores the ISO-8601 string returned by the LLM before DATETIMEVALUE conversion. Using Text avoids deserialiser failures when the LLM returns a slightly non-standard format.</description>
+    <externalId>false</externalId>
+    <label>Record Date (as Text)</label>
+    <length>100</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>
