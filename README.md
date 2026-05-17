@@ -1,6 +1,36 @@
-# Email to Record — Salesforce Open Source Template
+# AHA Email to Record
 
-Converts inbound emails into structured `aha_E2R_Record__c` records, enriched by an LLM Prompt Template. A minimal, generic starting point — extend it for any use case.
+Converts inbound emails into structured Salesforce records, enriched by an Agentforce Prompt Template. Built for UK Housing; adaptable to any vertical.
+
+## Project Overview
+
+### Vision & Goals
+
+Provide a free, open-source starting point for Salesforce orgs that receive structured information by email and want to turn those emails into actionable Salesforce records automatically — with AI-extracted fields — without custom integration work.
+
+* Route inbound emails to Salesforce records with zero manual data entry
+* Use Agentforce Prompt Templates to extract structured data (dates, categories, priorities, summaries) from free-text email bodies
+* Remain lightweight and generic enough to adapt to any domain in under an hour
+
+### Project Vertical
+
+Other — originally created for UK Housing; adaptable to any vertical.
+
+### Trailblazer Group or Slack Channel
+
+Slack: `#aha-e2r`
+
+### How to Contribute
+
+- Open an issue or pull request on [GitHub](https://github.com/SFDO-Community-Sprints/uk-housing-email2record)
+- Join the [Salesforce Open Source Commons](https://trailhead.salesforce.com/trailblazer-community/groups/0F94S000000GwVK)
+- Contact the maintainers via GitHub
+
+### Project Resources and Documentation
+
+Full installation and customisation documentation is in this README. See also the repository [wiki](https://github.com/SFDO-Community-Sprints/uk-housing-email2record/wiki) for sprint history and contributor notes.
+
+---
 
 ## What It Does
 
@@ -42,15 +72,15 @@ sf org login web --alias my-org-alias --set-default
 If you are only installing (no plans to modify or contribute), use a shallow clone — it downloads only the current files with no history, which is faster and smaller:
 
 ```bash
-git clone --depth 1 https://github.com/Etienne-SFDO/E2R_Email_to_Record.git
-cd E2R_Email_to_Record
+git clone --depth 1 https://github.com/SFDO-Community-Sprints/uk-housing-email2record.git
+cd uk-housing-email2record
 ```
 
 If you plan to customise or contribute, omit `--depth 1` to get the full history:
 
 ```bash
-git clone https://github.com/Etienne-SFDO/E2R_Email_to_Record.git
-cd E2R_Email_to_Record
+git clone https://github.com/SFDO-Community-Sprints/uk-housing-email2record.git
+cd uk-housing-email2record
 ```
 
 ### 2. Deploy to your org
@@ -257,7 +287,7 @@ See `DEPLOYMENT.md` for full details on the deploy order rationale and known iss
 
 This is an open source project. Contributions welcome.
 
-- Open an issue or PR on GitHub
+- Open an issue or PR on [GitHub](https://github.com/SFDO-Community-Sprints/uk-housing-email2record)
 - Join the [Salesforce Open Source Commons](https://trailhead.salesforce.com/trailblazer-community/groups/0F94S000000GwVK)
 - Contact the maintainers via GitHub
 
