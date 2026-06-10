@@ -60,7 +60,7 @@ This solution uses Prompt Templates. Check that your Salesforce org / sandbox ha
 
 ```bash
 sf --version
-sf --update
+sf update
 # Authenticate and set default org:
 sf org login web --alias my-org-alias --set-default
 ```
