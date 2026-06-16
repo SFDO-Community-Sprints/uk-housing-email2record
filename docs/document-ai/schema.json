@@ -1,0 +1,19 @@
+{
+  "name": "ahaE2RDocumentAIv1",
+  "description": "Document AI schema definition (v1) for extracting structured data from email ATTACHMENTS (PDF / image) into aha_E2R_Record__c. Generic, illustrative starter set — extend or replace properties to match your document types. NOTE: This is a source-of-truth design spec, NOT deployable DX metadata. Recreate it in the Data 360 'document schema builder' (Setup > Data 360 / Data Cloud > Document AI) or POST it via the Data 360 Connect REST API. See README.md.",
+  "documentTypes": [ "PDF", "Image" ],
+  "properties": {
+    "documentType": {
+      "title": "documentType",
+      "description": "What kind of document this is (e.g. 'Invoice', 'Application Form', 'Letter', 'Statement'). Infer from layout, headings, and content. Leave blank if genuinely unclear.",
+      "type": "text",
+      "targetField": "aha_Doc_Type__c"
+    },
+    "summary": {
+      "title": "summary",
+      "description": "A brief one- or two-sentence summary of what the document is about.",
+      "type": "text",
+      "targetField": "aha_Doc_Summary__c"
+    }
+  }
+}

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>aha_E2R_EmailParser</members>
+        <members>aha_E2R_DocumentAIExtractor</members>
+        <members>aha_E2R_DocumentAIQueueable</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>aha_E2R_Record__c.aha_Doc_Summary__c</members>
+        <members>aha_E2R_Record__c.aha_Doc_Type__c</members>
+        <name>CustomField</name>
+    </types>
+    <types>
+        <members>Document_AI_PermissionSet</members>
+        <name>PermissionSet</name>
+    </types>
+    <types>
+        <members>aha_E2R_Emails</members>
+        <name>EmailServicesFunction</name>
+    </types>
+    <types>
+        <members>aha_E2R_Record__c-E2R Record Layout</members>
+        <name>Layout</name>
+    </types>
+    <types>
+        <members>aha_E2R_Record_Record_Page</members>
+        <name>FlexiPage</name>
+    </types>
+    <version>66.0</version>
+</Package>

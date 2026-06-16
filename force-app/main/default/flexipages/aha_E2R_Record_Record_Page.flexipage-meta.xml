@@ -31,6 +31,10 @@
                     <value>true</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
+                    <name>hideSlackAction</name>
+                    <value>false</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
                     <name>numVisibleActions</name>
                     <value>2</value>
                 </componentInstanceProperties>
@@ -42,7 +46,6 @@
         <name>header</name>
         <type>Region</type>
     </flexiPageRegions>
-    <!-- Information section: left column -->
     <flexiPageRegions>
         <itemInstances>
             <fieldInstance>
@@ -87,7 +90,6 @@
         <name>Facet-info-left</name>
         <type>Facet</type>
     </flexiPageRegions>
-    <!-- Information section: right column -->
     <flexiPageRegions>
         <itemInstances>
             <fieldInstance>
@@ -109,10 +111,29 @@
                 <identifier>RecordSummaryField</identifier>
             </fieldInstance>
         </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.aha_Doc_Type__c</fieldItem>
+                <identifier>Recordaha_Doc_Type_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldInstanceProperties>
+                    <name>uiBehavior</name>
+                    <value>none</value>
+                </fieldInstanceProperties>
+                <fieldItem>Record.aha_Doc_Summary__c</fieldItem>
+                <identifier>Recordaha_Doc_Summary_cField</identifier>
+            </fieldInstance>
+        </itemInstances>
         <name>Facet-info-right</name>
         <type>Facet</type>
     </flexiPageRegions>
-    <!-- Information section: two-column wrapper -->
     <flexiPageRegions>
         <itemInstances>
             <componentInstance>
@@ -137,7 +158,6 @@
         <name>Facet-info-columns</name>
         <type>Facet</type>
     </flexiPageRegions>
-    <!-- Details section: left column -->
     <flexiPageRegions>
         <itemInstances>
             <fieldInstance>
@@ -152,7 +172,6 @@
         <name>Facet-details-left</name>
         <type>Facet</type>
     </flexiPageRegions>
-    <!-- Details section: right column -->
     <flexiPageRegions>
         <itemInstances>
             <fieldInstance>
@@ -167,7 +186,6 @@
         <name>Facet-details-right</name>
         <type>Facet</type>
     </flexiPageRegions>
-    <!-- Details section: two-column wrapper -->
     <flexiPageRegions>
         <itemInstances>
             <componentInstance>
@@ -192,7 +210,6 @@
         <name>Facet-details-columns</name>
         <type>Facet</type>
     </flexiPageRegions>
-    <!-- System Information section: left column -->
     <flexiPageRegions>
         <itemInstances>
             <fieldInstance>
@@ -227,7 +244,6 @@
         <name>Facet-sysinfo-left</name>
         <type>Facet</type>
     </flexiPageRegions>
-    <!-- System Information section: right column -->
     <flexiPageRegions>
         <itemInstances>
             <fieldInstance>
@@ -262,7 +278,6 @@
         <name>Facet-sysinfo-right</name>
         <type>Facet</type>
     </flexiPageRegions>
-    <!-- System Information section: two-column wrapper -->
     <flexiPageRegions>
         <itemInstances>
             <componentInstance>
@@ -287,7 +302,65 @@
         <name>Facet-sysinfo-columns</name>
         <type>Facet</type>
     </flexiPageRegions>
-    <!-- Original Email tab content -->
+    <flexiPageRegions>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>columns</name>
+                    <value>Facet-info-columns</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>horizontalAlignment</name>
+                    <value>false</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>label</name>
+                    <value>@@@SFDCInformationSFDC@@@</value>
+                </componentInstanceProperties>
+                <componentName>flexipage:fieldSection</componentName>
+                <identifier>flexipage_fieldSection_info</identifier>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>columns</name>
+                    <value>Facet-details-columns</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>horizontalAlignment</name>
+                    <value>false</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>label</name>
+                    <value>Details</value>
+                </componentInstanceProperties>
+                <componentName>flexipage:fieldSection</componentName>
+                <identifier>flexipage_fieldSection_details</identifier>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>columns</name>
+                    <value>Facet-sysinfo-columns</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>horizontalAlignment</name>
+                    <value>false</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>label</name>
+                    <value>@@@SFDCSystem_InformationSFDC@@@</value>
+                </componentInstanceProperties>
+                <componentName>flexipage:fieldSection</componentName>
+                <identifier>flexipage_fieldSection_sysinfo</identifier>
+            </componentInstance>
+        </itemInstances>
+        <mode>Replace</mode>
+        <name>detailTabContent</name>
+        <type>Facet</type>
+    </flexiPageRegions>
     <flexiPageRegions>
         <itemInstances>
             <fieldInstance>
@@ -357,7 +430,6 @@
         <name>Facet-email-section</name>
         <type>Facet</type>
     </flexiPageRegions>
-    <!-- Activity panel -->
     <flexiPageRegions>
         <itemInstances>
             <componentInstance>
@@ -372,161 +444,17 @@
         <name>Facet-activity</name>
         <type>Facet</type>
     </flexiPageRegions>
-    <!-- Record Details tab: sections assembly -->
     <flexiPageRegions>
         <itemInstances>
             <componentInstance>
                 <componentInstanceProperties>
-                    <name>columns</name>
-                    <value>Facet-info-columns</value>
+                    <name>parentFieldApiName</name>
+                    <value>aha_E2R_Record__c.Id</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
-                    <name>horizontalAlignment</name>
-                    <value>false</value>
+                    <name>relatedListApiName</name>
+                    <value>AttachedContentDocuments</value>
                 </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>label</name>
-                    <value>@@@SFDCInformationSFDC@@@</value>
-                </componentInstanceProperties>
-                <componentName>flexipage:fieldSection</componentName>
-                <identifier>flexipage_fieldSection_info</identifier>
-            </componentInstance>
-        </itemInstances>
-        <itemInstances>
-            <componentInstance>
-                <componentInstanceProperties>
-                    <name>columns</name>
-                    <value>Facet-details-columns</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>horizontalAlignment</name>
-                    <value>false</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>label</name>
-                    <value>Details</value>
-                </componentInstanceProperties>
-                <componentName>flexipage:fieldSection</componentName>
-                <identifier>flexipage_fieldSection_details</identifier>
-            </componentInstance>
-        </itemInstances>
-        <itemInstances>
-            <componentInstance>
-                <componentInstanceProperties>
-                    <name>columns</name>
-                    <value>Facet-sysinfo-columns</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>horizontalAlignment</name>
-                    <value>false</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>label</name>
-                    <value>@@@SFDCSystem_InformationSFDC@@@</value>
-                </componentInstanceProperties>
-                <componentName>flexipage:fieldSection</componentName>
-                <identifier>flexipage_fieldSection_sysinfo</identifier>
-            </componentInstance>
-        </itemInstances>
-        <mode>Replace</mode>
-        <name>detailTabContent</name>
-        <type>Facet</type>
-    </flexiPageRegions>
-    <!-- Duplicate sysinfo facets for Related lists tab -->
-    <flexiPageRegions>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.aha_Record_Date_Text__c</fieldItem>
-                <identifier>RecordDateTextField2</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <name>Facet-sysinfo2-left</name>
-        <type>Facet</type>
-    </flexiPageRegions>
-    <flexiPageRegions>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.OwnerId</fieldItem>
-                <identifier>RecordOwnerIdField2</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>readonly</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.CreatedById</fieldItem>
-                <identifier>RecordCreatedByIdField2</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>readonly</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.LastModifiedById</fieldItem>
-                <identifier>RecordLastModifiedByIdField2</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <name>Facet-sysinfo2-right</name>
-        <type>Facet</type>
-    </flexiPageRegions>
-    <flexiPageRegions>
-        <itemInstances>
-            <componentInstance>
-                <componentInstanceProperties>
-                    <name>body</name>
-                    <value>Facet-sysinfo2-left</value>
-                </componentInstanceProperties>
-                <componentName>flexipage:column</componentName>
-                <identifier>flexipage_column_sysinfo2_left</identifier>
-            </componentInstance>
-        </itemInstances>
-        <itemInstances>
-            <componentInstance>
-                <componentInstanceProperties>
-                    <name>body</name>
-                    <value>Facet-sysinfo2-right</value>
-                </componentInstanceProperties>
-                <componentName>flexipage:column</componentName>
-                <identifier>flexipage_column_sysinfo2_right</identifier>
-            </componentInstance>
-        </itemInstances>
-        <name>Facet-sysinfo2-columns</name>
-        <type>Facet</type>
-    </flexiPageRegions>
-    <!-- Related lists tab content -->
-    <flexiPageRegions>
-        <itemInstances>
-            <componentInstance>
-                <componentInstanceProperties>
-                    <name>columns</name>
-                    <value>Facet-sysinfo2-columns</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>horizontalAlignment</name>
-                    <value>false</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>label</name>
-                    <value>@@@SFDCSystem_InformationSFDC@@@</value>
-                </componentInstanceProperties>
-                <componentName>flexipage:fieldSection</componentName>
-                <identifier>flexipage_fieldSection_sysinfo2</identifier>
-            </componentInstance>
-        </itemInstances>
-        <itemInstances>
-            <componentInstance>
                 <componentInstanceProperties>
                     <name>relatedListComponentOverride</name>
                     <value>NONE</value>
@@ -539,15 +467,13 @@
                     <name>showActionBar</name>
                     <value>true</value>
                 </componentInstanceProperties>
-                <componentName>force:relatedListContainer</componentName>
-                <identifier>force_relatedListContainer</identifier>
+                <componentName>force:relatedListSingleContainer</componentName>
+                <identifier>force_relatedListSingleContainer</identifier>
             </componentInstance>
         </itemInstances>
-        <mode>Replace</mode>
-        <name>relatedTabContent</name>
+        <name>Facet-33b2cbe8-1763-4fd9-aa9d-3acab5e9c26a</name>
         <type>Facet</type>
     </flexiPageRegions>
-    <!-- Tabs assembly -->
     <flexiPageRegions>
         <itemInstances>
             <componentInstance>
@@ -599,14 +525,14 @@
             <componentInstance>
                 <componentInstanceProperties>
                     <name>body</name>
-                    <value>relatedTabContent</value>
+                    <value>Facet-33b2cbe8-1763-4fd9-aa9d-3acab5e9c26a</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
                     <name>title</name>
-                    <value>Standard.Tab.eduAdmissionsSystemInformation</value>
+                    <value>Standard.Tab.files</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:tab</componentName>
-                <identifier>relatedListsTab</identifier>
+                <identifier>flexipage_tab</identifier>
             </componentInstance>
         </itemInstances>
         <mode>Replace</mode>
