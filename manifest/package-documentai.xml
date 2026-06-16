@@ -19,5 +19,13 @@
         <members>aha_E2R_Emails</members>
         <name>EmailServicesFunction</name>
     </types>
+    <types>
+        <members>aha_E2R_Record__c-E2R Record Layout</members>
+        <name>Layout</name>
+    </types>
+    <types>
+        <members>aha_E2R_Record_Record_Page</members>
+        <name>FlexiPage</name>
+    </types>
     <version>66.0</version>
 </Package>

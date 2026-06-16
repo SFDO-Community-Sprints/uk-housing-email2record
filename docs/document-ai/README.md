@@ -55,10 +55,11 @@ Complete these in the target org after the deploy above succeeds.
    via `callout:aha_DocumentAI`, so the org needs to authorise a callout to itself:
 
    1. **Create an External Client App** — Setup → **External Client App Manager** → **New
-      External Client App**. Enable OAuth, set a callback URL (e.g. your My Domain login URL),
-      and add the `api` scope. Under **Policies**, enable the **Client Credentials Flow** and
+      External Client App**. Enable OAuth, set the callback URL to
+      `https://login.salesforce.com/services/oauth2/callback`, and add the `api` scope. Under
+      **Policies**, enable the **Client Credentials Flow** and
       set a **Run As** user (this user's permissions apply to the callout — give it the
-      `Document AI PermissionSet`, see step 3 below). Save and note the **Consumer Key** and
+      `Document AI PermissionSet`, see step 5 below). Save and note the **Consumer Key** and
       **Consumer Secret**.
    2. **Create an External Credential** — Setup → **Named Credentials** → **External
       Credentials** tab → **New**. Set **Authentication Protocol** to OAuth 2.0 and
@@ -74,7 +75,7 @@ Complete these in the target org after the deploy above succeeds.
 2. Build the Document AI schema configuration in Data Cloud (manual, UI-based — not part of
    the DX source):
 
-   1. **Setup → Data 360 (Data Cloud) → Process Content → Document AI → New Schema Configuration.**
+   1. **App Launcher → Process Content → Document AI → New Schema Configuration.**
    2. Choose **"without a source object"** (we extend via Flow/Apex), select the LLM, and set
       document types to **PDF** and **Image**.
    3. For each property in `schema.json`, add a field: use `title` as the field name, `type` for
@@ -87,7 +88,16 @@ Complete these in the target org after the deploy above succeeds.
    `aha_E2R_DocumentAIExtractor.cls` — this is how the extractor (enqueued via
    `aha_E2R_DocumentAIQueueable` from `aha_E2R_EmailParser`) knows which configuration to call.
 
-4. Assign the **Document AI PermissionSet** to the running user. The queueable executes as
+4. Add the **External Credential Principal** (created in step 1.2) to the **Document AI
+   PermissionSet**, so users/integrations holding that permission set are authorised to use the
+   principal's credentials for the callout.
+
+   1. Go to **Setup > Permission Sets**
+   2. Open **Document AI PermissionSet**
+   3. Under **External Credential Principal Access**, click **Edit**
+   4. Add the principal created on the External Credential in step 1.2 and save
+
+5. Assign the **Document AI PermissionSet** to the running user. The queueable executes as
    whichever user enqueued it — the Email Service's **Run As User** — so that user needs field
    access to `aha_Doc_Type__c` and `aha_Doc_Summary__c` to write the extracted values back to
    the record.
