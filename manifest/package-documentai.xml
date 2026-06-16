@@ -15,5 +15,9 @@
         <members>Document_AI_PermissionSet</members>
         <name>PermissionSet</name>
     </types>
+    <types>
+        <members>aha_E2R_Emails</members>
+        <name>EmailServicesFunction</name>
+    </types>
     <version>66.0</version>
 </Package>
