@@ -50,7 +50,28 @@ write it the way you'd brief a person reading the document. The `targetField` is
 
 Complete these in the target org after the deploy above succeeds.
 
-1. Build the Document AI schema configuration in Data Cloud (manual, UI-based — not part of
+1. Set up the callout to the `extract-data` Connect API. `aha_E2R_DocumentAIExtractor` calls the
+   org's own REST API (`/services/data/<version>/ssot/document-processing/actions/extract-data`)
+   via `callout:aha_DocumentAI`, so the org needs to authorise a callout to itself:
+
+   1. **Create an External Client App** — Setup → **External Client App Manager** → **New
+      External Client App**. Enable OAuth, set a callback URL (e.g. your My Domain login URL),
+      and add the `api` scope. Under **Policies**, enable the **Client Credentials Flow** and
+      set a **Run As** user (this user's permissions apply to the callout — give it the
+      `Document AI PermissionSet`, see step 3 below). Save and note the **Consumer Key** and
+      **Consumer Secret**.
+   2. **Create an External Credential** — Setup → **Named Credentials** → **External
+      Credentials** tab → **New**. Set **Authentication Protocol** to OAuth 2.0 and
+      **Authentication Flow Type** to **Client Credentials with Client Id and Secret Flow**.
+      Set the **Identity Provider URL** to your org's My Domain login URL
+      (`https://<your-domain>.my.salesforce.com/services/oauth2/token`). Add a **Principal**
+      and supply the Consumer Key/Secret from step 1.
+   3. **Create the Named Credential** — Setup → **Named Credentials** → **New**. Name it
+      `aha_DocumentAI` (must match `NAMED_CRED` in `aha_E2R_DocumentAIExtractor.cls`). Set the
+      **URL** to your org's My Domain base URL, link the **External Credential** from step 2,
+      and enable **Generate Authorization Header**.
+
+2. Build the Document AI schema configuration in Data Cloud (manual, UI-based — not part of
    the DX source):
 
    1. **Setup → Data 360 (Data Cloud) → Process Content → Document AI → New Schema Configuration.**
@@ -62,11 +83,11 @@ Complete these in the target org after the deploy above succeeds.
       results are reliable.
    5. **Deploy** the configuration.
 
-2. Set the saved config's API name as `IDP_CONFIG_NAME` in
+3. Set the saved config's API name as `IDP_CONFIG_NAME` in
    `aha_E2R_DocumentAIExtractor.cls` — this is how the extractor (enqueued via
    `aha_E2R_DocumentAIQueueable` from `aha_E2R_EmailParser`) knows which configuration to call.
 
-3. Assign the **Document AI PermissionSet** to the running user. The queueable executes as
+4. Assign the **Document AI PermissionSet** to the running user. The queueable executes as
    whichever user enqueued it — the Email Service's **Run As User** — so that user needs field
    access to `aha_Doc_Type__c` and `aha_Doc_Summary__c` to write the extracted values back to
    the record.

@@ -4,13 +4,6 @@
     <attachmentOption>BinaryOnly</attachmentOption>
     <authenticationFailureAction>Discard</authenticationFailureAction>
     <authorizationFailureAction>Discard</authorizationFailureAction>
-    <emailServicesAddresses>
-        <authorizedSenders>anmol.s2906@gmail.com</authorizedSenders>
-        <developerName>anmolsEmail</developerName>
-        <isActive>true</isActive>
-        <localPart>aha_e2r_emails</localPart>
-        <runAsUser>anmol.s2906.63479940fdf0@agentforce.com</runAsUser>
-    </emailServicesAddresses>
     <functionInactiveAction>Discard</functionInactiveAction>
     <functionName>aha_E2R_Emails</functionName>
     <isActive>true</isActive>
